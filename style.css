@@ -1,0 +1,253 @@
+html,body{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+
+}
+.container{
+    max-width: 1400px;
+    margin: 0 auto;
+}
+.df{
+    display: flex;
+}
+
+.frn{
+    flex-flow: row nowrap;
+}
+
+.fr{
+    flex-flow: row wrap;
+}
+
+.fc{
+    flex-flow:column wrap;
+}
+
+.fcn{
+    flex-flow: column nowrap;
+}
+
+.f1{
+    flex:1;
+}
+.aic{
+    align-items: center;
+}
+
+.jcc{
+    justify-content: center;
+}
+.aie{
+    justify-content: end;
+}
+.jce{
+    justify-content: end;
+}
+.as{
+    align-self: center;
+}
+*{
+    box-sizing:border-box ;
+    outline: none;
+}
+
+
+
+
+.navBar{
+    width: 100%;
+}
+
+.btns{
+    height: inherit;
+    width: 95px;
+}
+body{
+    backdrop-filter: blur(20px);
+    background-color: #042860;
+}
+.headerText{
+    font-family: inherit;
+    font-size: 20px;
+    font-weight: 500;
+    color: white;
+    font-family: 'Nunito', sans-serif;
+}
+
+.introBox{
+    height: 700px;
+}
+
+.sideText{
+    font-size: 50px;
+    font-weight: 700;
+    color:white;
+    font-family: 'Nunito', sans-serif;
+}
+.sideText2{
+    color:rgb(223, 223, 223);
+}
+.bgCover{
+    background-image: linear-gradient(90deg,rgba(35,39,43,1) 0%,rgba(107,107,107,1) 100%);
+    background-repeat: no-repeat;
+}
+.firstText{
+    font-size: 30px;
+}
+
+.subText{
+    font-size: 20px;
+    color:white;
+    font-family:'Nunito', sans-serif ;
+}
+
+.lmBtn{
+    border: 1px solid white;
+    height: 40px;
+    width: 120px;
+    font-family: inherit;
+    color:white;
+    font-size: 20px;
+    cursor: pointer;
+    margin-top: 5%;
+    border-radius: 1em;
+    -webkit-border-radius: 1em;
+    -moz-border-radius: 1em;
+    -ms-border-radius: 1em;
+    -o-border-radius: 1em;
+}
+.imgBox{
+    max-width: 500px;
+    min-width: 280px;
+    margin: 1%;
+    height: 600px;
+    box-shadow: rgb(0 0 0 / 8%) 0px 4px 15px;
+    border-radius: 25rem;
+    -webkit-border-radius: 25rem;
+    -moz-border-radius: 25rem;
+    -ms-border-radius: 25rem;
+    -o-border-radius: 25rem;
+}
+.introBox:first-child{
+    padding-left: 2%;
+}
+
+.imgClass{
+    max-width: 100%;
+}
+.infoTech{
+    background: rgba(0,0,0,0.8);
+    border-bottom: 11px solid orange;
+}
+.infoCard{
+    height: 150px;
+    width: 150px;
+    margin: 1%;
+    box-shadow: rgb(0 0 0 / 8%) 0px 4px 15px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+.infoCard:hover{
+    background-color:white;
+    border-left: 10px solid rgb(0 0 0 / 8%) 0px 4px 15px;
+}
+.techBox{
+    height:150px;
+    width: 150px;
+}
+.imgLast{
+    height: 500px;
+    max-width: 400px;
+}
+.buildText{
+    font-size: 30px;
+    font-family: 'Nunito', sans-serif ;
+    height: 40px;
+    color: white;
+    font-family: 'Ms Madi', cursive;
+}
+
+.contactText{
+    font-size: 40px;
+    font-family:'Nunito', sans-serif;
+    font-weight: 500;
+    color: white;
+}
+.emailText{
+    font-size: 20px;
+    font-family:'Nunito', sans-serif;
+    font-weight: 500;
+    color:white
+}
+.contactWrap{
+    padding: 5px;
+}
+.footer{
+    background-color: black;
+    height: 50px;
+}
+.footerText{
+    font-size: 15px;
+    color: white;
+    font-family:'Nunito', sans-serif;
+}
+.tdn{
+    text-decoration: none;
+}
+.contactBtn{
+    box-shadow: rgb(0 0 0 / 8%) 0px 4px 15px;
+    background-color: rgb(81, 81, 225);
+    color: white;
+    border-radius: 5px;
+    font-weight: 700;
+    padding: 10px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    cursor: pointer;
+}
+.contactBtn:active{
+    scale: 1.04;
+}
+
+.activeBtn{
+    border-bottom: 1px solid white;
+    border-radius: 8px ;
+    -webkit-border-radius: 8px ;
+    -moz-border-radius: 8px ;
+    -ms-border-radius: 8px ;
+    -o-border-radius: 8px ;
+}
+
+nav{
+    background-color: black;
+    box-shadow: rgb(0 0 0 / 8%) 0px 4px 15px;
+}
+
+.f2{
+    flex:2;
+}
+.bagdeIcon{
+    padding: 5px;
+    height: 45px;
+    width: 45px;
+    background-color: white;
+    padding: 10px;
+    border-radius: 12px;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    -ms-border-radius: 12px;
+    -o-border-radius: 12px;
+}
+
+.navBar{
+    overflow: hidden;
+    position:sticky;
+    top:0;
+}
