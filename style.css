@@ -45,6 +45,12 @@ html,body{
 .jce{
     justify-content: end;
 }
+.jcs{
+    justify-content: flex-start;
+}
+.ais{
+    align-items: flex-start;
+}
 .as{
     align-self: center;
 }
@@ -52,7 +58,9 @@ html,body{
     box-sizing:border-box ;
     outline: none;
 }
-
+.wf{
+    width: 100%;
+}
 
 
 
@@ -247,7 +255,135 @@ nav{
 }
 
 .navBar{
-    overflow: hidden;
+    /*overflow: hidden;*/
     position:sticky;
     top:0;
+}
+.dbimg{
+    max-width:900px;
+}
+.dbText{
+    color: white;
+    font-size: 32px;
+    text-align: center;
+    font-family: 'Nunito', sans-serif;
+}
+.TestimBox{
+    margin: 1%;
+    width: 250px;
+    height: 350px;
+    box-shadow: rgba(2,2,2,1);
+    background-color: #262a31;
+    border-radius: 1rem;
+    -webkit-border-radius: 1rem;
+    -moz-border-radius: 1rem;
+    -ms-border-radius: 1rem;
+    -o-border-radius: 1rem;
+    cursor: pointer;
+}
+.TestimBox:hover{
+    transform: scale(1.04);
+    transition: all .4s;
+    -webkit-transform: scale(1.04);
+    -moz-transform: scale(1.04);
+    -ms-transform: scale(1.04);
+    -o-transform: scale(1.04);
+    -webkit-transition: all .4s;
+    -moz-transition: all .4s;
+    -ms-transition: all .4s;
+    -o-transition: all .4s;
+}
+.TestimBox:active{
+    transform: scale(1.06);
+    transition: scale 0.1s;
+    -webkit-transform: scale(1.06);
+    -moz-transform: scale(1.06);
+    -ms-transform: scale(1.06);
+    -o-transform: scale(1.06);
+    -webkit-transition: scale 0.1s;
+    -moz-transition: scale 0.1s;
+    -ms-transition: scale 0.1s;
+    -o-transition: scale 0.1s;
+}
+
+.brd{
+    border:1px solid blue;
+
+}
+.testimImgBox{
+    height:120px;
+    width:120px;
+}
+.imgBrd{
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+.icon-rating-solid{
+    fill:yellow;
+    height: 20px;
+}
+.testimName{
+    font-family: 'Nunito', sans-serif;
+    color:white;
+    font-weight: 700;
+}
+.testimQuote{
+    height: 38px;
+}
+.testimMsg{
+    width: 95%;
+    text-align: center;
+    font-family: 'Nunito', sans-serif;
+    color:white;
+    letter-spacing: 0ch;
+}
+.testimPos{
+    font-family: 'Nunito', sans-serif;
+    color: #ccb8b8;
+}
+.humIcon{
+    height: 40px;
+}
+.dropDown{
+    position: relative;
+}
+.dropDownList{
+    display: none;
+    position: absolute;
+    width: 200px;
+    height: 130px;
+    left:-159px;
+    background-color: rgb(12 12 50 / 70%);
+    border-radius: 1rem;
+    -webkit-border-radius: 1rem;
+    -moz-border-radius: 1rem;
+    -ms-border-radius: 1rem;
+    -o-border-radius: 1rem;
+   
+}
+
+.btnDrop{
+    width:91% ;
+    margin: 1%;
+}
+.btnDrop:hover{
+    border-bottom: 1px solid rgb(12, 23, 40);
+}
+.badgeItems{
+    display: none;
+}
+.dropDown:hover .dropDownList{
+    display: flex;
+}
+
+@media  (min-width:659px) {
+    .badgeItems{
+        display: flex;
+    }
+    .dropDown{
+        display: none;
+    }
 }
