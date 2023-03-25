@@ -1,0 +1,1096 @@
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  
+
+    <link rel="apple-touch-icon" type="image/png" href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png">
+
+    <meta name="apple-mobile-web-app-title" content="CodePen">
+
+    <link rel="shortcut icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico">
+
+    <link rel="mask-icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-b4b4269c16397ad2f0f7a01bcdf513a1994f4c94b8af2f191c09eb0d601762b1.svg" color="#111">
+
+
+
+  
+  <title>CodePen - Clean Material Design Inspired Resume Website</title>
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300i,400,700&amp;display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simplebar/4.2.3/simplebar.css">
+ <link rel="stylesheet" href="main.css"/> 
+<style>
+/* 
+
+Code this website with me in a video codealong:
+https://youtu.be/wBQvr57UD2U
+
+Github repo for a better folder structure:
+https://github.com/FilipRastovic/clean-resume
+
+*/
+body {
+  background: #000;
+}
+
+html,
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
+body {
+  background: #fafafa;
+  overflow-x: hidden;
+}
+
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  font-family: "Open Sans", sans-serif;
+  line-height: 1.5;
+}
+
+h1 {
+  font-size: 48px;
+}
+
+h2 {
+  font-size: 32px;
+}
+
+h3 {
+  font-size: 24px;
+}
+
+h4 {
+  font-size: 20px;
+}
+
+h5 {
+  font-size: 16px;
+}
+
+h6 {
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+p {
+  font-size: 14px;
+}
+
+p.large-copy {
+  font-size: 16px;
+}
+
+p.copy {
+  font-size: 14px;
+}
+
+.caption {
+  font-size: 12px;
+}
+
+.text-link--small {
+  font-size: 14px;
+}
+
+label,
+.label {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.label-large {
+  font-size: 16px;
+}
+
+.wrapper .container {
+  border-radius: 6px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.27), 0 0 40px rgba(0, 0, 0, 0.06) inset;
+}
+@media (min-width: 1400px) {
+  .wrapper .container {
+    margin: 50px auto;
+  }
+}
+
+.background-blue {
+  background: #4A90E2;
+}
+
+.blue {
+  color: #4A90E2;
+}
+
+.sidebar {
+  padding: 32px;
+}
+.sidebar img {
+  box-shadow: 0 1px 32px rgba(20, 23, 26, 0.12);
+}
+.sidebar figcaption {
+  margin-top: 32px;
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 1;
+}
+.sidebar figcaption small {
+  font-size: 32px;
+  font-weight: inherit;
+}
+.sidebar .main-menu li {
+  border-bottom: 1px solid #fff;
+  padding: 15px 0;
+  transition: 0.3s ease-out;
+}
+.sidebar .main-menu li a {
+  font-size: 16px;
+  transition: inherit;
+}
+.sidebar .main-menu li a i {
+  margin: 0 12px 0 18px;
+}
+
+.content {
+  padding: 20px 15px;
+  background: #F8F9FA;
+  display: none;
+}
+.content.active {
+  display: block;
+}
+@media (min-width: 768px) {
+  .content {
+    padding: 40px 35px;
+    animation: 0.3s ease 1 slideInFromRight;
+  }
+}
+
+.slide-to-right {
+  animation: 1s ease 1 slideToRight;
+}
+
+@keyframes slideToRight {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(120%);
+  }
+}
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(120%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+.card {
+  padding: 25px;
+  border-color: transparent;
+  box-shadow: 0 1px 32px rgba(20, 23, 26, 0.12);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  border-radius: 3px;
+  background-color: #fff;
+}
+.card p:last-of-type {
+  margin-bottom: 35px;
+}
+.card .title {
+  color: #4A90E2;
+}
+.card .title i {
+  margin-right: 5px;
+}
+.card .interests .col-md-2:hover {
+  background: #fafafa;
+}
+.card .interests i {
+  font-size: 30px;
+  color: #4A90E2;
+}
+.card--stats {
+  padding: 15px 10px;
+}
+.card--stats i {
+  font-size: 30px;
+  color: #4A90E2;
+}
+.card--stats p {
+  font-size: 12px;
+  color: #4A90E2;
+}
+
+.sideline {
+  overflow: hidden;
+}
+.sideline:before, .sideline:after {
+  background-color: #000;
+  content: "";
+  display: inline-block;
+  height: 1px;
+  position: relative;
+  vertical-align: middle;
+  width: 50%;
+}
+.sideline:before {
+  right: 0.5em;
+  margin-left: -50%;
+}
+.sideline:after {
+  left: 0.5em;
+  margin-right: -50%;
+}
+
+.timeline .job-date {
+  font-size: 14px;
+}
+@media (min-width: 992px) {
+  .timeline .job-date {
+    text-align: right;
+    position: relative;
+  }
+  .timeline .job-date:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -5px;
+    width: 10px;
+    height: 10px;
+    border-radius: 150%;
+    background-color: #4A90E2;
+    z-index: 3;
+    margin-top: 6px;
+  }
+  .timeline .job-description {
+    position: relative;
+  }
+  .timeline .job-description:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1px;
+    height: 100%;
+    background-color: grey;
+    z-index: 2;
+  }
+}
+
+.filter-controls li {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  padding: 7px 11px;
+  background: #fafafa;
+  margin-right: 0;
+  margin-bottom: 0.5rem;
+  transition: 0.3s ease-in;
+}
+.filter-controls li.active {
+  background: #4A90E2;
+  color: #fff;
+}
+@media (max-width: 768px) {
+  .filter-controls li {
+    display: block;
+    margin-right: 0.5rem;
+  }
+}
+.filter-controls li:hover, .filter-controls li:focus, .filter-controls li:active {
+  background-color: #4A90E2;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Flaired edges, by Tomas Theunissen */
+.hr-container {
+  width: 100px;
+  height: 1px;
+  background-color: black;
+  position: relative;
+}
+.hr-container .circle {
+  display: inline-block;
+  vertical-align: middle;
+  width: 10px;
+  height: 10px;
+  background-color: white;
+  border: solid 1px black;
+  border-radius: 50%;
+  position: absolute;
+  top: -6px;
+  left: calc(50% - 5px);
+}
+
+.hr-blue {
+  margin-top: 20px;
+  background: #3EB2EF;
+}
+
+.hr-blue .circle {
+  background: #3EB2EF;
+  border-color: #3EB2EF;
+}
+</style>
+
+  <script>
+  window.console = window.console || function(t) {};
+</script>
+
+  
+  
+</head>
+
+<body translate="no">
+  <section class="wrapper">
+	<div class="container">
+		<div class="row">
+			<div class="col-12 col-sm-12 col-md-6 col-lg-4 text-white sidebar background-blue">
+				<div class="col-md-12 mx-auto">
+					<figure class="profile-image mx-auto">
+						<img class="img-fluid rounded-circle" src="image.jpg" alt="Profile photo">
+						<figcaption class="text-center"><small class="d-block">Ephraim</small>Netshikweta</figcaption>
+					</figure>
+					<ul class="list-unstyled main-menu mt-5">
+						
+						<li><a class="font-weight-bold text-white" href="#contact"><i class="far fa-envelope"></i>Contact</a></li>
+						<div class="df fr">
+							<div class="icon1 df jcc aic">
+								<i class="fa fa-phone"></i>
+							</div>
+							<div class="text-white df aic">
+								064 605 2915
+							</div>
+						</div>
+						<div class="df fr ">
+							<div class="icon1 df jcc aic">
+								<i class="far fa-envelope mr-2"></i>
+							</div>
+							<div class="text-white df aic">
+								vhutali58@gmail.com
+							</div>
+						</div>
+						<div class="df fr">
+							<div class="icon1 df jcc aic">
+								<i class="fas fa-map-marker-alt mr-2"></i>
+							</div>
+							<div style="height: 40px;" class="text-white df aic">
+								Pretoria,Hatfied
+							</div>
+						</div>
+						<div class="df fr ">
+							<div class="icon1 df jcc aic">
+								<i class="fas fa-globe mr-2"></i>
+							</div>
+							<div style="height: 40px;" class="text-white df aic">
+								<a class="text-white" href="https://ephraimnet.github.io/home/">ephraimnet.github.io/home/</a>
+							</div>
+						</div>
+					</ul>
+					<ul class="list-unstyled main-menu mt-5">
+						
+						<li><a class="font-weight-bold text-white" href="#contact"><i class="fa fa-language"></i>languages</a></li>
+						<div class="df fr">
+						<div class="df fr">
+							<div class="icon1 df jcc aic">
+								<i class="fa fa-signal"></i>
+							</div>
+							<div class="text-white df aic">
+								English
+							</div>
+						</div>
+						<div class="df fr">
+							<div class="icon1 df jcc aic">
+								<i class="fa fa-signal"></i>
+							</div>
+							<div class="text-white df aic">
+								Vend
+							</div>
+						</div>
+						<div class="df fr">
+							<div class="icon1 df jcc aic">
+								<i class="fa fa-signal"></i>
+							</div>
+							<div class="text-white df aic">
+								Xhosa
+							</div>
+						</div>
+					
+					</div>
+					
+					
+					</ul>
+					<ul class="list-unstyled list-inline mt-3 text-center">
+						<li class="list-inline-item"><a class="text-white" href="#"><i class="fab fa-facebook-f"></i></a></li>
+						<li class="list-inline-item"><a class="text-white" href="#"><i class="fab fa-instagram"></i></a>
+						</li>
+						<li class="list-inline-item"><a class="text-white" href="#"><i class="fab fa-linkedin-in"></i></a></li>
+						<li class="list-inline-item"><a class="text-white" href="#"><i class="fab fa-twitter"></i></a>
+						</li>
+
+					</ul>
+				</div>
+			</div>
+			<div id="about-me" data-simplebar="init" class="col-12 col-sm-12 col-md-6 col-lg-8 content about-me active"><div class="simplebar-wrapper" style="margin: -40px -35px;"><div class="simplebar-height-auto-observer-wrapper"><div class="simplebar-height-auto-observer"></div></div><div class="simplebar-mask"><div class="simplebar-offset" style="right: 0px; bottom: 0px;"><div class="simplebar-content-wrapper" style="height: 100%; overflow: hidden;"><div class="simplebar-content" style="padding: 40px 35px;">
+				<div class="card about-me">
+					<h3 class="sideline font-weight-bold mb-2">About Me</h3>
+					<div class="label title mb-2"><i class="fas fa-code"></i>Software Developer</div>
+					<p> I am an innovative, creative thinker who is adept at coming up with real solutions that work for clients. With experience in a wide variety of software, system architectures and programming languages, I am always current with the latest developments in the software development world. I pride myself on optimizing function and providing solutions that are intuitive user-friendly, adaptable and effective.
+					</p>
+					<p>I’m passionate about technology and developing creative solutions
+						to whichever problem I come across.</p>
+					<h3 class="sideline font-weight-bold mb-3">Hobbies and Interests</h3>
+					<div class="row interests">
+						<div class="col-4 col-md-4 col-lg-2 text-center mt-3">
+							<i class="fas fa-tree mb-3"></i>
+							<h6 class="font-weight-bold">Outdoors</h6>
+						</div>
+						<div class="col-4 col-md-4 col-lg-2 text-center mt-3">
+							<i class="fas fa-music mb-3"></i>
+							<h6 class="font-weight-bold">Music</h6>
+						</div>
+						<div class="col-4 col-md-4 col-lg-2 text-center mt-3">
+							<i class="fas fa-book mb-3"></i>
+							<h6 class="font-weight-bold">Books</h6>
+						</div>
+						<div class="col-4 col-md-4 col-lg-2 text-center mt-3">
+							<i class="fas fa-desktop mb-3"></i>
+							<h6 class="font-weight-bold">Computers</h6>
+						</div>
+						<div class="col-4 col-md-4 col-lg-2 text-center mt-3">
+							<i class="fas fa-gamepad mb-3"></i>
+							<h6 class="font-weight-bold">Game Dev</h6>
+						</div>
+						<div class="col-4 col-md-4 col-lg-2 text-center mt-3">
+							<i class="fas fa-plane mb-3"></i>
+							<h6 class="font-weight-bold">Travel</h6>
+						</div>
+					</div>
+				</div>
+
+				<div class="card mt-4">
+					<h3 class="font-weight-bold sideline mb-3">Education</h3>
+					<div class="timeline">
+						<div class="job row">
+							<div class="col-12 col-sm-12 col-md-12 col-lg-3 job-date blue"><i class="far fa-calendar-alt mr-2"></i>2020</div>
+							<div class="col-md-12 col-lg-9 job-description">
+								<h6 class="font-weight-bold">BACHELOR OF SCIENCE HONOURS IN COMPUTER SCIENCE (2022)</h6>
+								<h6 class="blue">UNIVERSITY OF PRETORIA (HATFIELD CAMPUS)</h6>
+								<p>(Attached)</p>
+							</div>
+						</div>
+						<div class="job row">
+							<div class="col-12 col-sm-12 col-md-12 col-lg-3 job-date blue"><i class="far fa-calendar-alt mr-2"></i>2022</div>
+							<div class="col-md-12 col-lg-9 job-description">
+								<h6 class="font-weight-bold">BACHELOR OF SCIENCE IN COMPUTER SCIENCE (2021)</h6>
+								<h6 class="blue">UNIVERSITY OF PRETORIA (HATFIELD CAMPUS)</h6>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="card mt-4">
+					<h3 class="font-weight-bold sideline mb-3">Technologies</h3>
+					<div class="label title dbCon mb-2">Web Developer </div>
+					<div class="df fr jcc ">
+						<div class="df textCon">
+							Php
+						</div>
+						<div class="df textCon">
+							Python
+						</div>
+						<div class="df textCon">
+							Java
+						</div>
+						<div class="df textCon">
+							JavaScript
+						</div>
+						<div class="df textCon">
+							C#
+						</div>
+						<div class="df textCon">
+							Ajax
+						</div>
+						<div class="df textCon">
+							Nodejs
+						</div>
+						<div class="df textCon">
+							React
+						</div>
+						<div class="df textCon">
+							XML
+						</div>
+						<div class="df textCon">
+							CSS3
+						</div>
+						<div class="df textCon">
+							HTML
+						</div>
+						<div class="df textCon">
+							JSON
+						</div>
+					
+						<div class="df textCon">
+							BOOTSTRAP 4, 5
+						</div>
+						<div class="df textCon">
+							React native
+						</div>
+						<div class="df textCon ">
+							Android
+						</div>
+						<div class="df textCon">
+							MVC
+						</div>
+						<div class="df textCon ">
+							MYSQL
+						</div>
+						<div class="df textCon ">
+							SQLITE
+						</div>
+						<div class="df textCon ">
+							MARIADB
+						</div>
+						<div class="df textCon ">
+							MSSQL
+						</div>
+						<div class="df textCon ">
+							MONGODB
+						</div>
+						
+						
+						
+					
+						
+					</div>
+
+					<div class="label title dbCon mb-2"></i>CYBER SECURITY:</div>
+					<div class="df fr jcc ">
+						<div class="df textCon">
+							Web Security
+						</div>
+						<div class="df textCon">
+							PTES
+						</div>
+						<div class="df textCon">
+							WEB PENTESTING
+						</div>
+					</div>
+					<div class="label title dbCon mb-2"></i>Mobile Development:</div>
+					<div class="df fr jcc ">
+						<div class="df textCon">
+							Android
+						</div>
+						<div class="df textCon">
+							React-Native
+						</div>
+						
+					</div>
+					<div class="label title dbCon mb-2"></i>Desktop Development:</div>
+					<div class="df fr jcc ">
+						<div class="df textCon">
+							C#
+						</div>
+					
+						
+					</div>
+					<div class="label title dbCon mb-2"></i>Technical Skills:</div>
+					<div class="df fr jcc ">
+						<div class="df textCon">
+							Routing and switches
+						</div>
+						<div class="df textCon">
+							data security
+						</div>
+						<div class="df textCon">
+							troubleshooting
+						</div>
+						<div class="df textCon">
+							installing networking equipment
+						</div>
+						<div class="df textCon">
+							hardware maintenance
+						</div>
+						<div class="df textCon">
+							system optimization
+						</div>
+					</div>
+					<div class="label title dbCon mb-2"></i>Other Skills:</div>
+					<div class="df fr jcc ">
+						<div class="df textCon">
+							Microsoft word
+						</div>
+						<div class="df textCon">
+							Excel
+						</div>
+					</div>
+
+
+				</div>
+
+				<div class="card mt-4">
+					<h3 class="font-weight-bold sideline mb-3">Experience</h3>
+					<div class="timeline">
+						<div class="job row">
+							<div class="col-12 col-sm-12 col-md-12 col-lg-3 job-date blue">
+								<i class="far fa-calendar-alt mr-2"></i>2019/02/01 – 2019/06/19
+							</div>
+							<div class="col-12 col-md-12 col-lg-9 job-description">
+								<h6 class="font-weight-bold">Lecture assistance</h6>
+								<h6 class="blue">University of Pretoria</h6>
+								<p>
+									Teaching assigned module( COS 122),
+									Maintaining student record,
+									Maintaining online resources and answering students concerns
+								</p>
+							</div>
+						</div>
+						<div class="job row">
+							<div class="col-12 col-sm-12 col-md-12 col-lg-3 job-date blue">
+								<i class="far fa-calendar-alt mr-2"></i>2020/02/04 – 2020/10/04
+							</div>
+							<div class="col-12 col-md-12 col-lg-9 job-description">
+								<h6 class="font-weight-bold">IT Lab assistance</h6>
+								<h6 class="blue">University of Pretoria</h6>
+								<p>
+									Checking computer hardware to ensure functionality
+									,installing and configuring software (virtual machines)
+									,Ensuring machines have internet access
+									,Performing troubleshooting to diagnose and resolve problem
+									,Providing orientation and guidance to students on how to operate new software
+								</p>
+							</div>
+						</div>
+						<div class="job row">
+							<div class="col-12 col-sm-12 col-md-12 col-lg-3 job-date blue">
+								<i class="far fa-calendar-alt mr-2"></i>2020/02/04 ~Recent
+							</div>
+							<div class="col-12 col-md-12 col-lg-9 job-description">
+								<h6 class="font-weight-bold">Freelancing</h6>
+								<h6 class="blue"></h6>
+								<p>
+									Creating web pages ,databases,
+									desktop applications and Mobile apps for clients
+									on my spare time.
+
+									
+								</p>
+							</div>
+						</div>
+						
+						<div class="job row">
+							<div class="col-12 col-sm-12 col-md-12 col-lg-3 job-date blue">
+								<i class="far fa-calendar-alt mr-2"></i>2021/01/16-2021/12/07</div>
+							<div class="col-md-12 col-lg-9 job-description">
+								<h6 class="font-weight-bold">Web Developer ,Application developer,web API’S
+									</h6>
+									<h6>Livex software</h6>
+								<h6 class="blue">  HTML, CSS, JavaScript,Mysql,reactNative,xml,json,c#,php</h6>
+								<p>Code site using html,php,react,.net,javascript,xml,
+								developing web API’S,
+								work with graphic designers, to determine site layout,
+								ecommerce and blog web page development (.NET,PHP,React,js),
+								Database creation and optimization (MYSQL),
+								web pen testing,
+								Android development (Code push~reactNative),
+								</p>
+							</div>
+						</div>
+						
+						<div class="job row">
+							<div class="col-12 col-sm-12 col-md-12 col-lg-3 job-date blue"><i class="far fa-calendar-alt mr-2"></i>2022/01/12-2023/02/15</div>
+							<div class="col-md-12 col-lg-9 job-description">
+								<h6 class="font-weight-bold">FullStack Developer</h6>
+								<h6>Warp Development(remote part-time)</h6>
+								<h6 class="blue">HTML, SCSS, JavaScript, jQuery,.NET,PHP,React,Nodejs,javascript,Mysql,NoSQL</h6>
+								<p>Implementing new features writing modern JavaScript. Fixing bugs, HTML, CSS
+									enhancements, compass.js.,
+									design and build application for mobile devices,
+									ensuring the quality of the application,
+									Web developer (.NET,PHP,React,Nodejs,javascript),
+									maintaining the code,
+									implementing application updates,
+									Maintaining database backup and recovery infrastructure(mysql),
+									Ensuring database Security and stability (Mysql,NoSQL),
+									create and modify scripts to perform tasks
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="card mt-4">
+					<h3 class="font-weight-bold sideline mb-3">References</h3>
+					<div class="df fr jcc">
+						<div class="refBox df fr">
+							<img style="height: 50px;margin: 4px;" src="https://img.icons8.com/external-icongeek26-outline-gradient-icongeek26/64/null/external-pear-fruits-icongeek26-outline-gradient-icongeek26.png"/>
+							<div class="df fc">
+								<h6 class="font-weight-bold">Rory James</h6>
+								<div class="refTitle">Project Manager</div>
+								<div class="refTitle">Warp Development</div>
+								<span class="refText"> +2712 348 1170</span>
+							</div>
+						</div>
+						<div class="refBox df fr">
+							<img  style="height: 50px;margin: 4px;" src="https://img.icons8.com/external-icongeek26-outline-gradient-icongeek26/64/null/external-Grapes-italy-icongeek26-outline-gradient-icongeek26.png"/>
+							<div class="df fc">
+								<h6 class="font-weight-bold"> Reinard Mortloc</h6>
+								<div class="refTitle">CEO Livex Software</div>
+								<span class="refText">07923292312</span>
+							</div>
+						</div>
+						<div class="refBox df fr">
+							<img style="height: 50px;margin: 4px;" src="https://img.icons8.com/external-inipagistudio-lineal-color-inipagistudio/64/null/external-orange-nutrition-food-inipagistudio-lineal-color-inipagistudio.png"/>
+							<div class="refIcon" class="df fc">
+								<h6 class="font-weight-bold">Blaise Colyvas</h6>
+								<div class="refTitle">Client</div>
+								<div class="refTitle refUrl">https://www.saxon.co.za/</div>
+								<span class="refText">+27 (0)11 292 6000</span>
+							</div>
+						</div>
+					
+						<div class="refBox df fr" >
+
+							<img style="height: 50px;margin: 4px;" src="https://img.icons8.com/external-inipagistudio-lineal-color-inipagistudio/64/null/external-pineapple-fruit-and-veggies-inipagistudio-lineal-color-inipagistudio.png"/>							<div class="df fc">
+								<h6 class="font-weight-bold">Elia Nenna</h6>
+								<div class="refTitle">Client</div>
+								<div class="refTitle refUrl">www.pizzerianenna.com/</div>
+								<span class="refText">082 442 2071</span>
+							</div>
+						</div>
+						
+						
+						<div class="refBox df fr">
+							<img style="height: 50px;margin: 4px;" src="https://img.icons8.com/external-inipagistudio-lineal-color-inipagistudio/64/null/external-avocado-mexican-culture-inipagistudio-lineal-color-inipagistudio.png"/>
+							<div class="df fc">
+								<h6 class="font-weight-bold">Prof Jan Eloff</h6>
+								<div class="refTitle">Professor</div>
+								<span class="refText">(012) 420-6927</span>
+							</div>
+						</div>
+						<div class="refBox df fr">
+							<img style="height: 50px;margin: 4px;" src="https://img.icons8.com/external-inipagistudio-lineal-color-inipagistudio/64/null/external-avocado-mexican-culture-inipagistudio-lineal-color-inipagistudio.png"/>
+							<div class="df fc">
+								<h6 class="font-weight-bold">Prof Nelishia Pillay</h6>
+								<div class="refTitle">Professor</div>
+								<span class="refText">(012) 420-2350</span>
+							</div>
+						</div>
+						
+					</div>
+				</div>
+
+
+				<div class="row mt-5">
+					<div class="col-12 col-sm-6 col-md-6 col-lg-3 mb-3">
+						<div class="card card--stats d-flex flex-row align-items-center">
+							<i class="fas fa-award ml-2"></i>
+							<div class="text-wrapper">
+								<h5 class="font-weight-bold ml-3 mb-0">5 Years</h5>
+								<p class="ml-3 mb-0">Work experience</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-12 col-sm-6 col-md-6 col-lg-3 mb-3">
+						<div class="card card--stats d-flex flex-row align-items-center">
+							<i class="fas fa-users"></i>
+							<div class="text-wrapper">
+								<h5 class="font-weight-bold ml-3 mb-0">15 Clients</h5>
+								<p class="ml-3 mb-0">Delivered</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-12 col-sm-6 col-md-6 col-lg-3 mb-3">
+						<div class="card card--stats d-flex flex-row align-items-center">
+							<i class="far fa-check-circle"></i>
+							<div class="text-wrapper">
+								<h5 class="font-weight-bold ml-3 mb-0">24 Projects</h5>
+								<p class="ml-3 mb-0">Delivered</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-12 col-sm-6 col-md-6 col-lg-3 mb-3">
+						<div class="card card--stats d-flex flex-row align-items-center">
+							<i class="fas fa-wrench"></i>
+							<div class="text-wrapper">
+								<h5 class="font-weight-bold ml-3 mb-0">Available</h5>
+								<p class="ml-3 mb-0">For hire</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div></div></div></div><div class="simplebar-placeholder" style="width: auto; height: 703px;"></div></div><div class="simplebar-track simplebar-horizontal" style="visibility: hidden;"><div class="simplebar-scrollbar" style="transform: translate3d(0px, 0px, 0px); display: none;"></div></div><div class="simplebar-track simplebar-vertical" style="visibility: hidden;"><div class="simplebar-scrollbar" style="transform: translate3d(0px, 0px, 0px); display: none;"></div></div></div>
+			<div id="experience" data-simplebar="init" class="col-12 col-sm-12 col-md-7 col-lg-9 content experience"><div class="simplebar-wrapper" style="margin: -40px -35px;"><div class="simplebar-height-auto-observer-wrapper"><div class="simplebar-height-auto-observer"></div></div><div class="simplebar-mask"><div class="simplebar-offset" style="right: 0px; bottom: 0px;"><div class="simplebar-content-wrapper" style="height: auto; overflow: hidden;"><div class="simplebar-content" style="padding: 40px 35px;">
+				<div class="card">
+					<h3 class="font-weight-bold sideline mb-3">Experience</h3>
+					<div class="timeline">
+						<div class="job row">
+							<div class="col-12 col-sm-12 col-md-12 col-lg-3 job-date blue">
+								<i class="far fa-calendar-alt mr-2"></i>02/14 – 07/15
+							</div>
+							<div class="col-12 col-md-12 col-lg-9 job-description">
+								<h6 class="font-weight-bold">Web Developer - BeerLove Digital Agency</h6>
+								<h6 class="blue">WordPress, HTML, SCSS, gulp.js, JavaScript, jQuery, React.js</h6>
+								<p>Build WordPress themes utilizing Elementor page builder and Gulp.js in order to
+									implement designs from Figma into a working Elementor
+									website with great backend UX. Writing maintainable and scaleable SCSS, handling all
+									interactions using jQuery.
+								</p>
+							</div>
+						</div>
+						<div class="job row">
+							<div class="col-12 col-sm-12 col-md-12 col-lg-3 job-date blue">
+								<i class="far fa-calendar-alt mr-2"></i>02/12 – 07/13</div>
+							<div class="col-md-12 col-lg-9 job-description">
+								<h6 class="font-weight-bold">Web Developer - Designer - LoveBeer Solutions Advertising
+									Agency</h6>
+								<h6 class="blue">Adobe XD, Photoshop, HTML, CSS, JavaScript, SCSS, ExpressionEngine</h6>
+								<p>Working on large scale web sites written in semantic HTML utilizing gulp.js and
+									Bootstrap. Writing modular and scaleable SCSS and integrating it all into
+									ExpressionEngine.
+								</p>
+							</div>
+						</div>
+						<div class="job row">
+							<div class="col-12 col-sm-12 col-md-12 col-lg-3 job-date blue"><i class="far fa-calendar-alt mr-2"></i>02/12 – 07/13</div>
+							<div class="col-md-12 col-lg-9 job-description">
+								<h6 class="font-weight-bold">JavaScript Developer</h6>
+								<h6 class="blue">HTML, SCSS, JavaScript, jQuery</h6>
+								<p>Implementing new features writing modern JavaScript. Fixing bugs, HTML, CSS
+									enhancements, compass.js.
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="card mt-5">
+					<h3 class="font-weight-bold sideline mb-3">Education</h3>
+					<div class="timeline">
+						<div class="job row">
+							<div class="col-12 col-sm-12 col-md-12 col-lg-3 job-date blue"><i class="far fa-calendar-alt mr-2"></i>02/12 – 07/13</div>
+							<div class="col-md-12 col-lg-9 job-description">
+								<h6 class="font-weight-bold">Beer Loving University</h6>
+								<h6 class="blue">Computer Science</h6>
+								<p>Department of applied computer science and informatics. I have understanding of data
+									structures,
+									computer architecture, object oriented programming, design patterns, software
+									engineering
+									methodologies and web development concepts. I’m also familiar with HCI concepts,
+									machine
+									learning and web security.
+								</p>
+							</div>
+						</div>
+						<div class="job row">
+							<div class="col-12 col-sm-12 col-md-12 col-lg-3 job-date blue"><i class="far fa-calendar-alt mr-2"></i>02/12 – 07/13</div>
+							<div class="col-md-12 col-lg-9 job-description">
+								<h6 class="font-weight-bold">“Svetozar Marković” Gymnasium</h6>
+								<h6 class="blue">Novi Sad</h6>
+								<p>General course.
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div></div></div></div><div class="simplebar-placeholder" style="width: 0px; height: 0px;"></div></div><div class="simplebar-track simplebar-horizontal" style="visibility: hidden;"><div class="simplebar-scrollbar" style="transform: translate3d(0px, 0px, 0px); display: none;"></div></div><div class="simplebar-track simplebar-vertical" style="visibility: hidden;"><div class="simplebar-scrollbar" style="transform: translate3d(0px, 0px, 0px); display: none;"></div></div></div>
+			<div id="portfolio" data-simplebar="init" class="col-12 col-sm-12 col-md-7 col-lg-9 content portfolio text-center"><div class="simplebar-wrapper" style="margin: -40px -35px;"><div class="simplebar-height-auto-observer-wrapper"><div class="simplebar-height-auto-observer"></div></div><div class="simplebar-mask"><div class="simplebar-offset" style="right: 0px; bottom: 0px;"><div class="simplebar-content-wrapper" style="height: auto; overflow: hidden;"><div class="simplebar-content" style="padding: 40px 35px;">
+				<ul class="filter-controls list-unstyled list-inline">
+					<li class="list-inline-item active" data-filter="all"> <i class="fas fa-list-ul"></i> All items
+					</li>
+					<li class="list-inline-item" data-filter="1"> <i class="fas fa-code"></i> Development </li>
+					<li class="list-inline-item" data-filter="2"> <i class="fas fa-paint-brush"></i> Design </li>
+					<li class="list-inline-item" data-filter="3"> <i class="fas fa-camera"></i> Photography </li>
+				</ul>
+
+				<div class="row filter-container mt-3" style="padding: 0px; position: relative; width: 100%; display: flex; flex-wrap: wrap;">
+					<div class="col-md-3 filtr-item" data-category="1" data-sort="value" style="opacity: 1; transform: scale(0.5) translate3d(0px, 0px, 0px); backface-visibility: hidden; perspective: 1000px; transform-style: preserve-3d; position: absolute; transition: all 0.5s ease-out 0ms, width 1ms ease 0s;">
+						<figure class="figure mb-5">
+							<a class="popup-link" href="https://www.clarity-enhanced.net/wp-content/uploads/2020/06/sample1.jpg"><img src="https://www.clarity-enhanced.net/wp-content/uploads/2020/06/sample1.jpg" class="img-fluid" alt="A generic square placeholder image with rounded corners in a figure."></a>
+							<figcaption class="font-weight-bold figure-caption">A caption for the above image.
+							</figcaption>
+						</figure>
+					</div>
+					<div class="col-md-3 filtr-item" data-category="2" data-sort="value" style="opacity: 1; transform: scale(0.5) translate3d(0px, 0px, 0px); backface-visibility: hidden; perspective: 1000px; transform-style: preserve-3d; position: absolute; transition: all 0.5s ease-out 0ms, width 1ms ease 0s;">
+						<figure class="figure mb-5">
+							<a class="popup-link" href="https://www.clarity-enhanced.net/wp-content/uploads/2020/06/sample2.jpg"><img src="https://www.clarity-enhanced.net/wp-content/uploads/2020/06/sample2.jpg" class="img-fluid popup-link" alt="A generic square placeholder image with rounded corners in a figure."></a>
+							<figcaption class="font-weight-bold figure-caption">A caption for the above image.
+							</figcaption>
+						</figure>
+					</div>
+					<div class="col-md-3 filtr-item" data-category="3" data-sort="value" style="opacity: 1; transform: scale(0.5) translate3d(0px, 0px, 0px); backface-visibility: hidden; perspective: 1000px; transform-style: preserve-3d; position: absolute; transition: all 0.5s ease-out 0ms, width 1ms ease 0s;">
+						<figure class="figure mb-5">
+							<a class="popup-link" href="https://www.clarity-enhanced.net/wp-content/uploads/2020/06/sample3.jpg"><img src="https://www.clarity-enhanced.net/wp-content/uploads/2020/06/sample3.jpg" class="img-fluid popup-link" alt="A generic square placeholder image with rounded corners in a figure."></a>
+							<figcaption class="font-weight-bold figure-caption">A caption for the above image.
+							</figcaption>
+						</figure>
+					</div>
+					<div class="col-md-3 filtr-item" data-category="1" data-sort="value" style="opacity: 1; transform: scale(0.5) translate3d(0px, 0px, 0px); backface-visibility: hidden; perspective: 1000px; transform-style: preserve-3d; position: absolute; transition: all 0.5s ease-out 0ms, width 1ms ease 0s;">
+						<figure class="figure mb-5">
+							<a class="popup-link" href="https://www.clarity-enhanced.net/wp-content/uploads/2020/06/sample1.jpg"><img src="https://www.clarity-enhanced.net/wp-content/uploads/2020/06/sample1.jpg" class="img-fluid popup-link" alt="A generic square placeholder image with rounded corners in a figure."></a>
+							<figcaption class="font-weight-bold figure-caption">A caption for the above image.
+							</figcaption>
+						</figure>
+
+					</div>
+					<div class="col-md-3 filtr-item" data-category="2" data-sort="value" style="opacity: 1; transform: scale(0.5) translate3d(0px, 0px, 0px); backface-visibility: hidden; perspective: 1000px; transform-style: preserve-3d; position: absolute; transition: all 0.5s ease-out 0ms, width 1ms ease 0s;">
+						<figure class="figure mb-5">
+							<a class="popup-link" href="https://www.clarity-enhanced.net/wp-content/uploads/2020/06/sample2.jpg"><img src="https://www.clarity-enhanced.net/wp-content/uploads/2020/06/sample2.jpg" class="img-fluid popup-link" alt="A generic square placeholder image with rounded corners in a figure."></a>
+							<figcaption class="font-weight-bold figure-caption">A caption for the above image.
+							</figcaption>
+						</figure>
+					</div>
+					<div class="col-md-3 filtr-item" data-category="3" data-sort="value" style="opacity: 1; transform: scale(0.5) translate3d(0px, 0px, 0px); backface-visibility: hidden; perspective: 1000px; transform-style: preserve-3d; position: absolute; transition: all 0.5s ease-out 0ms, width 1ms ease 0s;">
+						<figure class="figure mb-5">
+							<a class="popup-link" href="https://www.clarity-enhanced.net/wp-content/uploads/2020/06/sample3.jpg"><img src="https://www.clarity-enhanced.net/wp-content/uploads/2020/06/sample3.jpg" class="img-fluid popup-link" alt="A generic square placeholder image with rounded corners in a figure."></a>
+							<figcaption class="font-weight-bold figure-caption">A caption for the above image.
+							</figcaption>
+						</figure>
+					</div>
+					<div class="col-md-3 filtr-item" data-category="1" data-sort="value" style="opacity: 1; transform: scale(0.5) translate3d(0px, 0px, 0px); backface-visibility: hidden; perspective: 1000px; transform-style: preserve-3d; position: absolute; transition: all 0.5s ease-out 0ms, width 1ms ease 0s;">
+						<figure class="figure mb-5">
+							<a class="popup-link" href="https://www.clarity-enhanced.net/wp-content/uploads/2020/06/sample1.jpg"><img src="https://www.clarity-enhanced.net/wp-content/uploads/2020/06/sample1.jpg" class="img-fluid popup-link" alt="A generic square placeholder image with rounded corners in a figure."></a>
+							<figcaption class="font-weight-bold figure-caption">A caption for the above image.
+							</figcaption>
+						</figure>
+
+					</div>
+					<div class="col-md-3 filtr-item" data-category="2" data-sort="value" style="opacity: 1; transform: scale(0.5) translate3d(0px, 0px, 0px); backface-visibility: hidden; perspective: 1000px; transform-style: preserve-3d; position: absolute; transition: all 0.5s ease-out 0ms, width 1ms ease 0s;">
+						<figure class="figure mb-5">
+							<a class="popup-link" href="https://www.clarity-enhanced.net/wp-content/uploads/2020/06/sample2.jpg"><img src="https://www.clarity-enhanced.net/wp-content/uploads/2020/06/sample2.jpg" class="img-fluid popup-link" alt="A generic square placeholder image with rounded corners in a figure."></a>
+							<figcaption class="font-weight-bold figure-caption">A caption for the above image.
+							</figcaption>
+						</figure>
+					</div>
+				</div>
+			</div></div></div></div><div class="simplebar-placeholder" style="width: 0px; height: 0px;"></div></div><div class="simplebar-track simplebar-horizontal" style="visibility: hidden;"><div class="simplebar-scrollbar" style="transform: translate3d(0px, 0px, 0px); display: none;"></div></div><div class="simplebar-track simplebar-vertical" style="visibility: hidden;"><div class="simplebar-scrollbar" style="transform: translate3d(0px, 0px, 0px); display: none;"></div></div></div>
+			<div id="contact" data-simplebar="init" class="col-12 col-sm-12 col-md-7 col-lg-9 content contact"><div class="simplebar-wrapper" style="margin: -40px -35px;"><div class="simplebar-height-auto-observer-wrapper"><div class="simplebar-height-auto-observer"></div></div><div class="simplebar-mask"><div class="simplebar-offset" style="right: 0px; bottom: 0px;"><div class="simplebar-content-wrapper" style="height: auto; overflow: hidden;"><div class="simplebar-content" style="padding: 40px 35px;">
+				<div class="row mt-5">
+					<div class="col-12 col-sm-12 col-md-12 col-lg-5">
+						<h3 class="font-weight-bold sideline">Contact</h3>
+						<p>If you would like to get in touch with me feel free to full out this contact form. I ussualy
+							reply within 2-5 business days. Thanks!</p>
+
+						<ul class="list-unstyled">
+							<li class="font-weight-bold"><a href="#"><i class="far fa-envelope mr-2"></i>myemailaddress@example.com</a></li>
+							<li class="font-weight-bold"><a href="#"><i class="fas fa-globe mr-2"></i>www.mywebsite.com</a></li>
+							<li class="font-weight-bold"><a href="#"><i class="fas fa-map-marker-alt mr-2"></i>Paris,
+									France</a></li>
+						</ul>
+					</div>
+					<div class="col-12 col-sm-12 col-md-12 col-lg-7">
+						<form class="card">
+							<div class="form-group">
+								<label for="full-name label">Full name</label>
+								<input type="text" class="form-control" id="full-name" placeholder="Full name">
+							</div>
+							<div class="form-group">
+								<label for="exampleInputEmail1">Email address</label>
+								<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+							</div>
+							<div class="form-group">
+								<label for="message">Message:</label>
+								<textarea class="form-control" rows="5" id="message"></textarea>
+							</div>
+
+							<button type="submit" class="btn btn-primary">Submit</button>
+						</form>
+					</div>
+				</div>
+			</div></div></div></div><div class="simplebar-placeholder" style="width: 0px; height: 0px;"></div></div><div class="simplebar-track simplebar-horizontal" style="visibility: hidden;"><div class="simplebar-scrollbar" style="transform: translate3d(0px, 0px, 0px); display: none;"></div></div><div class="simplebar-track simplebar-vertical" style="visibility: hidden;"><div class="simplebar-scrollbar" style="transform: translate3d(0px, 0px, 0px); display: none;"></div></div></div>
+		</div>
+	</div>
+</section>
+    <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-2c7831bb44f98c1391d6a4ffda0e1fd302503391ca806e7fcc7b9b87197aec26.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/simplebar/4.2.3/simplebar.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/filterizr/2.2.3/jquery.filterizr.min.js"></script>
+      <script id="rendered-js">
+// Change the current window shown by toggling the active class.
+$('.main-menu a').on('click', function (e) {
+
+  var activeClass = $(this).attr('href').substring(1);
+
+  setTimeout(function () {
+    $('.content.active').removeClass('active');
+
+    $('.' + activeClass).addClass('active');
+
+    $('html, body').animate({
+      scrollTop: $($('.' + activeClass)).offset().top },
+    500);
+
+  }, 300);
+
+  // Once a user clicks the portfolio link, animate the portfolio.
+  if (activeClass === 'portfolio') {
+
+    setTimeout(function () {
+
+      $('.filter-controls li')[0].click();
+
+    }, 300);
+  }
+
+});
+
+
+// Change the current active window based on the hash value in the url.
+var type = window.location.hash.substr(1);
+
+if (type) {
+  $('.content.active').removeClass('active');
+
+  $('.' + type).addClass('active');
+
+}
+
+// Magnific Popup init
+$('.popup-link').magnificPopup({
+  type: 'image' });
+
+
+// Adds active class to the current portfolio item selected.
+$('.filter-controls li').on('click', function () {
+
+  if (!$(this).hasClass('active')) {
+
+    $('.filter-controls li.active').removeClass('active');
+
+    $(this).addClass('active');
+
+  }
+
+});
+
+// Filterizr init for portfolio page.
+var options = {
+  /* check next step for available options */};
+
+// Adjust the CSS selector to match the container where you set up your image gallery
+var filterizr = new Filterizr('.filter-container', options);
+//# sourceURL=pen.js
+    </script>
+
+  
+
+
+</body></html>

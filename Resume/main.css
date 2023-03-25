@@ -1,0 +1,94 @@
+.df{
+    display:flex;
+}
+
+.frn{
+    flex-flow: row nowrap;
+}
+
+.fr{
+    flex-flow: row wrap;
+}
+
+.fc{
+    flex-flow:column wrap;
+}
+
+.fcn{
+    flex-flow: column nowrap;
+}
+
+.f1{
+    flex:1;
+}
+.aic{
+    align-items: center;
+}
+
+.jcc{
+    justify-content: center;
+}
+.aie{
+    justify-content: end;
+}
+.jce{
+    justify-content: end;
+}
+.jcs{
+    justify-content: flex-start;
+}
+.ais{
+    align-items: flex-start;
+}
+.as{
+    align-self: center;
+}
+
+.textCon{
+    background-color: #526fb7;
+    color: white;
+    border-radius: 7%;
+    padding: 2%; 
+    font-size: 14px;
+    padding-top: 0;
+    padding-bottom: 0;
+    justify-content: center;
+    margin: 1%;
+}
+.dbCon{
+    background-color: whitesmoke;
+    color: #769ac3;
+}
+.dbBox{
+    background-color: #161c60;
+}
+.refBox{
+    display: flex;
+    width: 220px;
+    margin: 1%;
+}
+.refText{
+    font-size: 14px; 
+}
+.refTitle{
+    font-size: 14px; 
+
+}
+.dotClass{
+    color: green;
+    font-size: 60px;
+}
+
+.refIcon{
+    height: 50px;
+    margin: 4px;
+}
+
+.refUrl{
+    font-size: 13px;
+    text-decoration: none;
+}
+.icon1{
+    height: 37px;
+    width: 40px;
+}
