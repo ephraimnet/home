@@ -1,0 +1,65 @@
+.df{
+    display:flex;
+}
+.fr{
+    flex-flow:row wrap;
+}
+.frn{
+    flex-flow: row nowrap;
+}
+.fc{
+    flex-flow: column wrap;
+}
+.fcn{
+    flex-flow:column nowrap;
+}
+.frn{
+    flex-flow:row nowrap;
+}
+.jcc{
+    justify-content: center;
+}
+.jce{
+    justify-content:flex-end;
+}
+.aic{
+    align-items: center;
+}
+.aie{
+    align-items:flex-end;
+}
+.f1{
+    flex:1;
+}
+.wf{
+    width: 100%;
+}
+.pn{
+    pointer-events: none;
+}
+.jcs{
+    justify-content: start;
+}
+.wsn{
+    white-space: nowrap;
+}
+.dsn{
+    display: none;
+}
+.tdn{
+    text-decoration: none;
+}
+
+
+
+.pr{
+    position: relative;
+}
+
+.pa{
+    position: absolute;
+}
+.container{
+    margin: 0 auto;
+    max-width: 1450px;
+}
