@@ -1,0 +1,358 @@
+(function ($) {
+	'use strict';
+
+	var uneroEls = uneroEls || {};
+	uneroEls.init = function () {
+		uneroEls.$body = $(document.body),
+			uneroEls.$window = $(window),
+			uneroEls.$header = $('#masthead');
+
+		this.uneroSliders();
+		this.bannersCarousel();
+		this.productsCarousel();
+		this.bannerItem();
+		this.heroSlider();
+		this.gMaps();
+		this.countDown();
+
+	};
+
+	// Carousel Slider
+	uneroEls.uneroSliders = function () {
+
+		if (uneroShortCode.length === 0 || typeof uneroShortCode.uneroSliders === 'undefined') {
+			return;
+		}
+		$.each(uneroShortCode.uneroSliders, function (id, carouselData) {
+
+			var infinite = false,
+				fade = false,
+				$carouselID = $(document.getElementById(id));
+			if (carouselData.autoplay == '1') {
+				infinite = true;
+			}
+
+			if (carouselData.transition == 'fade') {
+				fade = true;
+			}
+
+
+			$carouselID.not('.slick-initialized').slick({
+				rtl: (uneroShortCode.direction === 'true'),
+				slidesToShow  : 1,
+				slidesToScroll: 1,
+				autoplaySpeed : carouselData.speed,
+				autoplay      : carouselData.autoplay,
+				infinite      : infinite,
+				fade          : fade,
+				lazyLoad      : 'ondemand',
+				prevArrow     : '<span class="icon-chevron-left slick-prev-arrow"></span>',
+				nextArrow     : '<span class="icon-chevron-right slick-next-arrow"></span>'
+			});
+
+			uneroEls.$window.on('resize', function () {
+
+				if (carouselData.height > 0) {
+					var wWidth = uneroEls.$window.width(),
+						wSlider = (wWidth * carouselData.height) / 1903;
+
+					$carouselID.height(wSlider);
+				}
+
+			}).trigger('resize');
+
+			if (carouselData.parallax == '1') {
+				$carouselID.find('.featured-img').parallax('50%', 0.6);
+			}
+
+			$carouselID.imagesLoaded(function () {
+				$carouselID.addClass('loaded');
+			});
+
+			var video = $carouselID.find('.unvideo-bg').find('video');
+			if (video.length > 0) {
+				video[0].play();
+			}
+
+			$carouselID.on('afterChange', function (event, slick, currentSlide) {
+				var video = $carouselID.find('.slick-slide[data-slick-index="' + currentSlide + '"]').find('video');
+				if (video.length > 0) {
+					video[0].play();
+				}
+			});
+
+			$carouselID.on('beforeChange', function (event, slick, currentSlide) {
+				var video = $carouselID.find('.slick-slide[data-slick-index="' + currentSlide + '"]').find('video');
+				if (video.length > 0) {
+					video[0].pause();
+				}
+			});
+
+		});
+
+
+	};
+
+	// Banner Carousel
+	uneroEls.bannersCarousel = function () {
+
+		if (uneroShortCode.length === 0 || typeof uneroShortCode.bannersCarousel === 'undefined') {
+			return;
+		}
+		$.each(uneroShortCode.bannersCarousel, function (id, carouselData) {
+
+			var infinite = false,
+				$carouselID = $(document.getElementById(id));
+			if (carouselData.autoplay == '1') {
+				infinite = true;
+			}
+
+			$carouselID.not('.slick-initialized').slick({
+				rtl: (uneroShortCode.direction === 'true'),
+				slidesToShow  : 3,
+				slidesToScroll: 1,
+				autoplaySpeed : carouselData.speed,
+				autoplay      : carouselData.autoplay,
+				infinite      : infinite,
+				lazyLoad      : 'ondemand',
+				prevArrow     : '<span class="icon-arrow-left slick-prev-arrow"></span>',
+				nextArrow     : '<span class="icon-arrow-right slick-next-arrow"></span>',
+				responsive    : [
+					{
+						breakpoint: 1200,
+						settings  : {
+							slidesToShow  : 2,
+							slidesToScroll: 1
+						}
+					},
+					{
+						breakpoint: 600,
+						settings  : {
+							slidesToShow  : 1,
+							slidesToScroll: 1
+						}
+					}
+				]
+			});
+
+			$carouselID.imagesLoaded(function () {
+				$carouselID.addClass('loaded');
+			});
+
+		});
+
+
+	};
+
+	// Products Carousel
+	uneroEls.productsCarousel = function () {
+		if (uneroShortCode.length === 0 || typeof uneroShortCode.productsCarousel === 'undefined') {
+			return;
+		}
+
+		$.each(uneroShortCode.productsCarousel, function (id, productsData) {
+			var infinite = false;
+			if (productsData.autoplay == '1') {
+				infinite = true;
+			}
+			$(document.getElementById(id)).find('ul.products').not('.slick-initialized').slick({
+				rtl: (uneroShortCode.direction === 'true'),
+				slidesToShow  : productsData.columns,
+				slidesToScroll: 1,
+				autoplaySpeed : productsData.speed,
+				autoplay      : productsData.autoplay,
+				infinite      : infinite,
+				lazyLoad      : 'ondemand',
+				prevArrow     : '<span class="icon-chevron-left slick-prev-arrow"></span>',
+				nextArrow     : '<span class="icon-chevron-right slick-next-arrow"></span>',
+				responsive    : [
+					{
+						breakpoint: 1200,
+						settings  : {
+							slidesToShow  : 3,
+							slidesToScroll: 1
+						}
+					},
+					{
+						breakpoint: 767,
+						settings  : {
+							slidesToShow  : 2,
+							slidesToScroll: 1
+						}
+					},
+					{
+						breakpoint: 481,
+						settings  : {
+							slidesToShow  : parseInt(uneroShortCode.product_columns_mobile, 10),
+							slidesToScroll: 1
+						}
+					}
+				]
+			});
+		});
+
+	};
+
+	// Banner Masonry
+	uneroEls.bannerItem = function () {
+		$('.unero-banner').each(function () {
+			var fwidth = $(this).find('.text').width(),
+				fleft = (( fwidth / 2 + 25 ) ) * -1,
+				fheight = $(this).find('img').attr('height');
+
+			if ($(this).hasClass('text-align-left')) {
+				$(this).find('.text').css('left', fleft);
+			} else {
+				$(this).find('.text').css('right', fleft);
+			}
+
+			if ($(this).hasClass('text-position-center')) {
+				$(this).find('.text').css('top', (fheight - fwidth) / 2);
+			}
+
+		});
+	};
+
+	/**
+	 * Hero Slider
+	 */
+
+	uneroEls.heroSlider = function () {
+
+		$('.unero-hero-slider').on('mouseover touchstart', '.item-content', function () {
+			var $tab = $(this),
+				index = $tab.index(),
+				$images = $tab.closest('.unero-hero-slider').find('.item-image');
+
+			$images.removeClass('active');
+			$tab.siblings().removeClass('active');
+
+			$tab.addClass('active');
+			$images.filter(':eq(' + index + ')').addClass('active');
+
+		});
+	};
+
+	// Count Down
+	uneroEls.countDown = function () {
+
+		if ($('#unero-countdown-date').length <= 0) {
+			return;
+		}
+
+		var diff = $('#unero-countdown-date').html();
+		$('#unero-countdown-date').FlipClock(diff, {
+			clockFace: 'DailyCounter',
+			countdown: true,
+			labels   : [uneroShortCode.days, uneroShortCode.hours, uneroShortCode.minutes, uneroShortCode.seconds]
+		});
+	};
+
+	// Google Maps
+	uneroEls.gMaps = function () {
+		if (uneroShortCode.length === 0 || typeof uneroShortCode.map === 'undefined') {
+			return;
+		}
+
+		var styles = [{
+				'featureType': 'administrative',
+				'elementType': 'all',
+				'stylers'    : [{'visibility': 'simplified'}]
+			}, {
+				'featureType': 'landscape',
+				'elementType': 'geometry',
+				'stylers'    : [{'visibility': 'simplified'}, {'color': '#fcfcfc'}]
+			}, {
+				'featureType': 'poi',
+				'elementType': 'geometry',
+				'stylers'    : [{'visibility': 'simplified'}, {'color': '#fcfcfc'}]
+			}, {
+				'featureType': 'road.highway',
+				'elementType': 'geometry',
+				'stylers'    : [{'visibility': 'simplified'}, {'color': '#dddddd'}]
+			}, {
+				'featureType': 'road.arterial',
+				'elementType': 'geometry',
+				'stylers'    : [{'visibility': 'simplified'}, {'color': '#dddddd'}]
+			}, {
+				'featureType': 'road.local',
+				'elementType': 'geometry',
+				'stylers'    : [{'visibility': 'simplified'}, {'color': '#eeeeee'}]
+			}, {
+				'featureType': 'water',
+				'elementType': 'geometry',
+				'stylers'    : [{'visibility': 'simplified'}, {'color': '#dddddd'}]
+			}],
+			customMap = new google.maps.StyledMapType(styles,
+				{name: 'Styled Map'});
+
+		var mapOptions = {
+			scrollwheel       : false,
+			draggable         : true,
+			zoom              : 13,
+			mapTypeId         : google.maps.MapTypeId.ROADMAP,
+			panControl        : false,
+			zoomControl       : true,
+			zoomControlOptions: {
+				style: google.maps.ZoomControlStyle.SMALL
+			},
+			scaleControl      : false,
+			streetViewControl : false
+
+		};
+
+		$.each(uneroShortCode.map, function (id, mapData) {
+			var map,
+				marker,
+				location = new google.maps.LatLng(mapData.lat, mapData.lng);
+
+
+			// Update map options
+			mapOptions.zoom = parseInt(mapData.zoom, 10);
+			mapOptions.center = location;
+			mapOptions.mapTypeControlOptions = {
+				mapTypeIds: [google.maps.MapTypeId.ROADMAP]
+			};
+
+			// Init map
+			map = new google.maps.Map(document.getElementById(id), mapOptions);
+
+			// Create marker options
+			var markerOptions = {
+				map     : map,
+				position: location
+			};
+			if (mapData.marker) {
+				markerOptions.icon = {
+					url: mapData.marker
+				};
+			}
+
+			map.mapTypes.set('map_style', customMap);
+			map.setMapTypeId('map_style');
+
+			// Init marker
+			marker = new google.maps.Marker(markerOptions);
+
+			if (mapData.info) {
+				var infoWindow = new google.maps.InfoWindow({
+					content : '<div class="infobox mrbara-map">' + mapData.info + '</div>',
+					maxWidth: 600
+				});
+
+				google.maps.event.addListener(marker, 'click', function () {
+					infoWindow.open(map, marker);
+				});
+			}
+
+		});
+	};
+
+	/*
+	 * Document ready
+	 */
+	$(function () {
+		uneroEls.init();
+	});
+
+})(jQuery);

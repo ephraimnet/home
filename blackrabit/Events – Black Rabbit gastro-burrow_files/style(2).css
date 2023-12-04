@@ -1,0 +1,84 @@
+.js-map svg {
+  width: 100%;
+}
+
+.js-map [id^="table"]:hover {
+  cursor: pointer;
+  fill: #bbb;
+}
+
+
+.js-map-loader {
+	margin: -2rem -1rem;
+	position: absolute;
+	width: calc(100% - 3.7rem);
+	height: calc(50% + 9.7rem);
+background: rgba(124, 124, 124, 0.75);
+	z-index: 1000;
+}
+
+.js-map-loader-gif {
+	background: url(/public/img/loading.gif);
+    background-size: 100% 100%;
+    height: 100px;
+    width: 100px;
+    margin: 0 auto;
+    margin-top: calc(25% - 50px);
+}
+
+.booking-employed {
+	fill: #de4500!important;
+	cursor: default;
+	pointer-events: none;
+}
+
+.js-map-loader-alert {
+	margin-top: calc(25% - 50px);
+    text-align: center;
+}
+
+.js-map-loader-alert-text {
+	color: #fff;
+    font-size: 15px;
+    font-weight: bold;
+    padding-top: 15px;
+    text-align: initial;
+}
+
+.mdi-alert {
+	color: #fff;
+	font-size: 25px;
+	width: 350px;
+	display: none;
+	margin: 0 auto;
+    margin-top: calc(25% - 50px);
+}
+
+.datepicker-dropdown {
+	z-index: 10000!important;
+}
+
+.input-error {
+	border-color: #d64800;
+}
+.input-error-text {
+	font-size: 11px;
+    color: #d64800;
+    display: none;
+}
+
+#thanks {
+	display: none;
+}
+
+#thanks .form-group {
+	text-align: center;
+}
+
+.bootstrap-datetimepicker-widget {
+	z-index: 100000;
+}
+
+.datepicker table tr td.disabled {
+	color: #999999 !important;
+}

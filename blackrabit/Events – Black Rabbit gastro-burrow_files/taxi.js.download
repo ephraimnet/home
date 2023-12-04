@@ -1,0 +1,136 @@
+$(document).ready(function() {
+  /**
+   * Удаляем preloader
+   */
+  //$(".js-map-loader-gif").remove();
+
+
+    function displayMessage (event) {
+      localStorage.setItem("postMessageOrigin", event.origin);
+      var height = $('.modal-content').prop('scrollHeight');
+      event.source.postMessage(height,event.origin);
+    }
+
+    if (window.addEventListener) {
+      window.addEventListener("message", displayMessage, false);
+    } else {
+      window.attachEvent("onmessage", displayMessage);
+    }
+
+    $(window).click(function(e){
+      $("form").css("height", "0px");
+      if (!e.target.className.includes('js-input-booking-date')) {
+          var height = $('.modal-content').prop('scrollHeight');
+      } else {
+          var modalheader = $('.modal-header').prop('scrollHeight');
+          var modalbody = $('.modal-body').prop('scrollHeight');
+          var datepickerdropdown = $('.datepicker-dropdown').prop('scrollHeight');
+          var height = modalheader + modalbody + datepickerdropdown;
+      }
+
+      var postMessageOrigin = localStorage.getItem("postMessageOrigin");
+      window.parent.postMessage(height, postMessageOrigin);
+      $("form").css("height", height+"px");
+    });
+
+    /*
+    $(".js-input-booking-date").click(function(e){
+      var modalheader = $('.modal-header').prop('scrollHeight');
+      var modalbody = $('.modal-body').prop('scrollHeight');
+      var datepickerdropdown = $('.datepicker-dropdown').prop('scrollHeight');
+      var height = modalheader + modalbody + datepickerdropdown;
+      var postMessageOrigin = localStorage.getItem("postMessageOrigin");
+      window.parent.postMessage(height, postMessageOrigin);
+    });*/
+
+    /*
+    function displayMessage (evt) {
+      var message;
+      message = "I got " + evt.data + " from " + evt.origin;
+      alert(message);
+    }
+
+    if (window.addEventListener) {
+      // For standards-compliant web browsers
+      window.addEventListener("message", displayMessage, false);
+    }
+    else {
+      window.attachEvent("onmessage", displayMessage);
+    }*/
+
+
+  $('#cardInfo').ajaxForm({ 
+    url: '/frame/taxiCardInfo',
+    dataType: 'text',
+    success: function(data) {
+      data = $.parseJSON(data);
+      switch(data.status) {
+        case 'error':
+          $("#step1").show();
+          break;
+        case 'success':
+          $("#cardInfo").remove();
+          $("#userInfo").show();
+          var height = $('.modal-content').prop('scrollHeight');
+          var postMessageOrigin = localStorage.getItem("postMessageOrigin");
+          //window.parent.postMessage(height, postMessageOrigin);
+          break;
+      }
+    },
+    beforeSubmit: function(arr, $form, options) {
+      //$('button[type=submit]').prop('disabled', true);
+    }
+  });
+
+  $('#userInfo').ajaxForm({ 
+    url: '/frame/taxiUserInfo',
+    dataType: 'text',
+    success: function(data) {
+      data = $.parseJSON(data);
+      $("#userInfo").remove();
+      $("#success").show();
+    },
+    beforeSubmit: function(arr, $form, options) {
+      //$('button[type=submit]').prop('disabled', true);
+    }
+  });
+
+  /**
+   * Изменение статуса брони - принята
+   */
+  $('.js-btn-taxi-accept').on('click', function() {
+    var id = $(this).attr('data-id');
+
+    axios.put(location.href, {
+      id: id,
+      status: 1
+    }).then(function() {
+      //alert('Статус заявки успешно изменен');
+      location.href = location.href;
+    })
+  });
+
+  /**
+   * Изменение статуса брони - отмена
+   */
+  $('.js-btn-taxi-reject').on('click', function() {
+    var id = $(this).attr('data-id');
+
+    axios.put(location.href, {
+      id: id,
+      status: 2
+    }).then(function() {
+      //alert('Статус заявки успешно изменен');
+      location.href = location.href;
+    })
+  });
+
+  /**
+   * Получаем кол. записей на странице
+   */
+   $('select[name="order-listing_length"]').on('change', function() {
+      location.href = "/taxi/index/"+$(this).val();
+  });
+
+
+});

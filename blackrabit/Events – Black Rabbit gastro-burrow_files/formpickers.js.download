@@ -1,0 +1,147 @@
+$(document).ready(function(){  
+  'use strict';
+  function getCookie(name) {
+    var value = "; " + document.cookie;
+    var parts = value.split("; " + name + "=");
+    if (parts.length == 2) return parts.pop().split(";").shift();
+  }
+  var lang = getCookie('lang');
+  if ($("#timepicker-example").length) {
+    $('#timepicker-example').datetimepicker({
+        format: 'HH:mm',
+        pickDate: false,
+        pickSeconds: false,
+        pick12HourFormat: false,
+        autoclose: true
+    });
+  }
+  if ($(".color-picker").length) {
+    $('.color-picker').asColorPicker();
+  }
+  if ($("#datepicker-popup").length) {
+    $('#datepicker-popup').datepicker({
+      startDate: '+0d',
+      enableOnReadonly: true,
+      todayHighlight: true,
+      autoclose: true,
+      language: ''+lang+'',
+    }).on('changeDate', function(ev){
+        $("form").css("height", "0px");
+        var height = $('.modal-content').prop('scrollHeight');
+        var postMessageOrigin = localStorage.getItem("postMessageOrigin");
+        window.parent.postMessage(height, postMessageOrigin);
+        $("form").css("height", height+"px");
+    });;
+  }
+  if ($("#inline-datepicker").length) {
+    $('#inline-datepicker').datepicker({
+      enableOnReadonly: true,
+      todayHighlight: true,
+    });
+  }
+  if ($(".datepicker-autoclose").length) {
+    $('.datepicker-autoclose').datepicker({
+      startDate: '+0d',
+      autoclose: true,
+      language: 'ru'
+    });
+  }
+  if ($('input[name="date-range"]').length) {
+    $('input[name="date-range"]').daterangepicker();
+  }
+  if ($('input[name="date-time-range"]').length) {
+    $('input[name="date-time-range"]').daterangepicker({
+      timePicker: true,
+      timePickerIncrement: 30,
+      locale: {
+        format: 'MM/DD/YYYY h:mm A'
+      }
+    });
+  }
+  if ($("#disable_booking1_from_date").length) {
+    $('#disable_booking1_from_date').datepicker({
+        startDate: '+0d',
+        enableOnReadonly: true,
+        todayHighlight: true,
+        autoclose: true,
+        language: 'ru'
+    });
+  }
+  if ($("#disable_booking1_from_time").length) {
+    $('#disable_booking1_from_time').datetimepicker({
+        format: 'HH:mm',
+        pickDate: false,
+        pickSeconds: false,
+        pick12HourFormat: false,
+        language: 'ru',
+        autoclose: true
+    });
+  }
+  if ($("#disable_booking1_to_date").length) {
+    $('#disable_booking1_to_date').datepicker({
+        startDate: '+0d',
+        enableOnReadonly: true,
+        todayHighlight: true,
+        autoclose: true,
+        language: 'ru'
+    });
+  }
+  if ($("#disable_booking1_to_time").length) {
+    $('#disable_booking1_to_time').datetimepicker({
+        format: 'HH:mm',
+        pickDate: false,
+        pickSeconds: false,
+        pick12HourFormat: false,
+        language: 'ru',
+        autoclose: true
+    });
+  }
+  if ($("#disable_booking2_from_date").length) {
+    $('#disable_booking2_from_date').datepicker({
+        startDate: '+0d',
+        enableOnReadonly: true,
+        todayHighlight: true,
+        autoclose: true,
+        language: 'ru'
+    });
+  }
+  if ($("#disable_booking2_from_time").length) {
+    $('#disable_booking2_from_time').datetimepicker({
+        format: 'HH:mm',
+        pickDate: false,
+        pickSeconds: false,
+        pick12HourFormat: false,
+        language: 'ru',
+
+    });
+  }
+  if ($("#disable_booking2_to_date").length) {
+    $('#disable_booking2_to_date').datepicker({
+        startDate: '+0d',
+        enableOnReadonly: true,
+        todayHighlight: true,
+        autoclose: true,
+        language: 'ru'
+    });
+  }
+  if ($("#disable_booking2_to_time").length) {
+    $('#disable_booking2_to_time').datetimepicker({
+        format: 'HH:mm',
+        pickDate: false,
+        pickSeconds: false,
+        pick12HourFormat: false,
+        language: 'ru',
+        autoclose: true
+    });
+  }
+  $(window).click(function(e){
+    if (!e.target.className.includes('timepicker-example')) {
+        $(".bootstrap-datetimepicker-widget").hide();
+        //$('#timepicker-example').datetimepicker('hide');
+    } else {
+        //$('#timepicker-example').datetimepicker('show');
+        $(".bootstrap-datetimepicker-widget").show();
+    }
+  });
+
+});
