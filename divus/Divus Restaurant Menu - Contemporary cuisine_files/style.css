@@ -1,0 +1,22 @@
+/**
+Theme Name: Astra Child
+Author: Blanknet
+Author URI: https://blanknet.co
+Description: https://blanknet.co
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: astra-child
+Template: astra
+*/
+
+#menu-toggle-close {
+	padding-right: 10px;
+}
+
+#ast-mobile-popup > div.ast-mobile-popup-inner > div.ast-mobile-popup-content > div.ast-builder-layout-element.ast-flex.site-header-focus-item.ast-header-button-1 {
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
+	margin-top: 10px;
+}
