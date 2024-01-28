@@ -1,0 +1,358 @@
+/* my code - part 1 */
+/* ============ desktop view ============ */
+@media all and (min-width: 992px) {
+    .navbar .nav-item .dropdown-menu {
+        display: none;
+    }
+    .navbar .nav-item:hover .nav-link {}
+    .navbar .nav-item:hover .dropdown-menu {
+        display: block;
+    }
+    .navbar .nav-item .dropdown-menu {
+        margin-top: 0;
+    }
+}
+/* ============ desktop view .end// ============ */
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+@media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+    }
+}
+.b-example-divider {
+    height: 3rem;
+    background-color: rgba(0, 0, 0, .1);
+    border: solid rgba(0, 0, 0, .15);
+    border-width: 1px 0;
+    box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+}
+.b-example-vr {
+    flex-shrink: 0;
+    width: 1.5rem;
+    height: 100vh;
+}
+.bi {
+    vertical-align: -.125em;
+    fill: currentColor;
+}
+.nav-scroller {
+    position: relative;
+    z-index: 2;
+    height: 2.75rem;
+    overflow-y: hidden;
+}
+.nav-scroller .nav {
+    display: flex;
+    flex-wrap: nowrap;
+    padding-bottom: 1rem;
+    margin-top: -1px;
+    overflow-x: auto;
+    text-align: center;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+}
+.btn-secondary,
+.btn-secondary:hover,
+.btn-secondary:focus {
+    color: #333;
+    text-shadow: none;
+}
+.cover-container {
+    max-width: 42em;
+}
+/* my code - part 1 */
+/* my code - part 2 */
+.bm1 {
+    top: -1px;
+    position: relative;
+}
+.obj-fit-cover,
+.bg-img {
+    -o-object-fit: cover;
+    object-fit: cover;
+    -o-object-position: center;
+    object-position: center;
+}
+.obj-fit-contain,
+.obj-fit-cover,
+.bg-img {
+    width: 100%;
+    height: 100%;
+}
+.my-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: -1;
+    align-items: center;
+    justify-content: center;
+}
+.my-h84 {
+    height: calc(100vh - 46px);
+    align-items: center;
+    justify-content: center;
+}
+.my-h75 {
+    height: calc(75vh - 46px);
+    align-items: center;
+    justify-content: center;
+}
+.my-h667 {
+    height: 667px;
+    align-items: center;
+    justify-content: center;
+}
+.my-h540 {
+    height: 540px;
+    align-items: center;
+    justify-content: center;
+}
+.my_flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.my_flex__bg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+.my_flex__card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.my_flex__footer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+.my_flex__footer p {
+    color: #e2c285;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 38px;
+    text-transform: uppercase;
+}
+.card__bg {
+    display: flex;
+    align-items: center;
+    --bs-card-bg: rgb(255 255 255 / 0%);
+    --bs-card-border-color: rgb(255 255 255 / 0%);
+}
+.card-img-overlay__bg {
+    background-color: rgba(0, 0, 0, 0.0);
+    --bs-card-border-color: rgba(0, 0, 0, 0.0);
+    border: none;
+    --bs-card-cap-bg: rgba(0, 0, 0, 0.0);
+}
+.bc8 {
+    border: 8px solid #dfe5e8;
+}
+.bg__my1 {
+    margin-bottom: 0px !important;
+    background-image: url(https://chisinau.vispas.com/img/bg1.jpg) !important;
+    background-position: 0 0 !important;
+    background-repeat: repeat !important;
+}
+.bg__my2 {
+    margin-bottom: 0px !important;
+    background-image: url(https://chisinau.vispas.com/img/bg2.jpg) !important;
+    background-position: 0 0 !important;
+    background-repeat: repeat !important;
+}
+.bg-dark__mybg1 {
+    background-color: rgba(37 33 27 / 77%) !important;
+}
+.circle__bg {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.img__bg_num {
+    position: absolute;
+}
+.img__bg_text {
+    color: #e2c285;
+}
+.element {
+    background-image: url(https://chisinau.vispas.com/img/numere-din-hotel/circle.svg);
+    height: 60px;
+    width: 60px;
+}
+.element2 {
+    background-image: url(https://chisinau.vispas.com/img/numere-din-hotel/circle120.svg);
+    height: 120px;
+    width: 120px;
+    top: 0;
+    position: absolute
+}
+.text-color-brand {
+    color: #e2c285;
+}
+.text-color-brand-2 {
+    color: #645e54;
+}
+p.cmsndh a.text-color-brand-2:hover {
+    color: #212529;
+}
+.fw-600 {
+    font-weight: 600;
+}
+.numb-style {
+    font-size: 130%;
+    color: #e2c285;
+}
+.cmsndh a,
+.text_pfooter a {
+    text-decoration: none;
+}
+.text_pfooter a {
+    color: #ffffff;
+}
+.oferte {
+    position: absolute;
+}
+p.oferte {
+    color: #e2c285;
+    font-size: 32px;
+    line-height: 25px;
+    position: absolute;
+    bottom: -40px;
+}
+.zi20 {
+    z-index: 20;
+}
+.text-numere {
+    color: #e2c285;
+    line-height: 38px;
+    font-size: 36px;
+}
+#oferte th {
+    border-style: none;
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.numere_tfoot {
+    background-color: rgba(37, 33, 27, 0.83) !important;
+}
+.list_footer_flex {
+    list-style-type: none;
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    line-height: 2.5;
+}
+.list_footer_flex a {
+    border-right: 1px solid rgba(37, 33, 27, 1) !important;
+    padding: 0 15px;
+}
+.list_footer_flex li:last-child>a {
+    border-right: none !important;
+}
+a.scroll-top-button {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    background-color: #06060f66;
+}
+a.scroll-top-button img {
+    position: relative;
+    top: 10px;
+}
+/* my code part 2 */
+/* my code part 3 numere */
+.text-name-number {
+    border-radius: 0px;
+    background-color: rgba(226, 194, 133, 0.7);
+    color: rgba(0, 0, 0, 0.65);
+    margin: 20px;
+    padding: 7px 25px;
+    width: fit-content;
+}
+/* my code part 3 numere*/
+
+/* GLOBAL STYLES
+-------------------------------------------------- */
+/* gallery base class */
+
+/**. :after, :before {
+    box-sizing: border-box;
+}*/
+*.clear:after,.clear:before {
+    box-sizing: border-box;
+}
+.clear:after, .clear:before {
+    content: '';
+    display: table;
+    clear: both;
+}
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    border: 10px solid #fff;
+    width: calc(100% - 50px);
+    margin: 0px auto 0;
+    padding: 5px;
+}
+.gallery a {
+    display: block;
+    text-decoration: none;
+    width: 25%;
+    overflow: hidden;
+    outline: none;
+    padding: 5px;
+}
+.gallery a img {
+    height: 100%;
+    transform: scale(1,1);
+    transition: all 300ms ease;
+}
+.gallery a img:hover {
+    transform: scale(1.1,1.1);
+}
+.bg {
+    width: 100%;
+    height: 200px;
+    background-size: cover;
+    transform: scale(1,1);
+    transition: all 300ms ease;
+    /*background: center;*/
+}
+.bg:hover {
+    transform: scale(1.1,1.1);
+}
+@media(max-width: 991px) {
+    .gallery a {
+        width: 50%;
+    }
+}
+@media(max-width: 767px) {
+    .gallery a {
+        width: 100%;
+    }
+    .bg {
+        /*height: 300px;*/
+        background-size: cover;
+    }
+}
+/* gallery base class */
